@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const double bottomContainerHeight = 80.0;
+const Color cardBackgroundColor = Color(0XFF1D1F33);
+const Color activeCardColor = Color(0XFF1D1E33);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -15,47 +19,61 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: SquircleCard(
-                  color: Color(0XFF1D1F33),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: SquircleCard(
+                    color: cardBackgroundColor,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: SquircleCard(
-                  color: Color(0XFF1D1F33),
+                Expanded(
+                  child: SquircleCard(
+                    color: cardBackgroundColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: SquircleCard(
-                  color: Color(0XFF1D1F33),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  flex: 10,
+                  child: SquircleCard(
+                    color: cardBackgroundColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: SquircleCard(
-                  color: Color(0XFF1D1F33),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  flex: 5,
+                  child: SquircleCard(
+                    color: cardBackgroundColor,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: SquircleCard(
-                  color: Color(0XFF1D1F33),
+                Expanded(
+                  flex: 5,
+                  child: SquircleCard(
+                    color: cardBackgroundColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
+          ),
+          Container(
+            color: Theme.of(context).accentColor,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
           ),
         ],
       ),
@@ -64,14 +82,13 @@ class _InputPageState extends State<InputPage> {
 }
 
 class SquircleCard extends StatelessWidget {
-  Color color;
+  final Color color;
 
   SquircleCard({required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: Color(0XFF1D1F33),
