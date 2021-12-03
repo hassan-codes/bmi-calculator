@@ -83,12 +83,14 @@ class _InputPageState extends State<InputPage> {
 
 class SquircleCard extends StatelessWidget {
   final Color color;
+  final Widget? child;
 
-  SquircleCard({required this.color});
+  SquircleCard({required this.color, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: child,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: Color(0XFF1D1F33),
