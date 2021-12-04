@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'card_child_content.dart';
+import 'squircle_card.dart';
+
 const double bottomContainerHeight = 80.0;
 const Color cardBackgroundColor = Color(0XFF1D1F33);
 const Color activeCardColor = Color(0XFF1D1E33);
@@ -97,55 +100,6 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerHeight,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CardChildContent extends StatelessWidget {
-  CardChildContent({required this.icon, required this.title});
-
-  final String title;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(
-          icon,
-          size: 80.0,
-        ),
-        SizedBox(
-          height: 15.0,
-        ),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Color(0XFF8D8398),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class SquircleCard extends StatelessWidget {
-  SquircleCard({required this.color, required this.child});
-
-  final Color color;
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: child,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: Color(0XFF1D1F33),
-        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
