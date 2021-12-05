@@ -12,7 +12,7 @@ class SquircleCard extends StatelessWidget {
       child: child,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
-        color: Color(0XFF1D1F33),
+        color: color,
         borderRadius: BorderRadius.circular(10.0),
       ),
     );
