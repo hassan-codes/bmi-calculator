@@ -37,38 +37,34 @@ class _InputPageState extends State<InputPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: SquircleCard(
+                      onPress: () {
                         setState(() {
                           selectedGender = Gender.male;
                         });
                       },
-                      child: SquircleCard(
-                        color: (selectedGender == Gender.male)
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        child: CardChildContent(
-                          icon: FontAwesomeIcons.mars,
-                          title: 'MALE',
-                        ),
+                      color: (selectedGender == Gender.male)
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      child: CardChildContent(
+                        icon: FontAwesomeIcons.mars,
+                        title: 'MALE',
                       ),
                     ),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: SquircleCard(
+                      onPress: () {
                         setState(() {
                           selectedGender = Gender.female;
                         });
                       },
-                      child: SquircleCard(
-                        color: (selectedGender == Gender.female)
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        child: CardChildContent(
-                          icon: FontAwesomeIcons.venus,
-                          title: 'FEMALE',
-                        ),
+                      color: (selectedGender == Gender.female)
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      child: CardChildContent(
+                        icon: FontAwesomeIcons.venus,
+                        title: 'FEMALE',
                       ),
                     ),
                   ),
@@ -82,6 +78,7 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     flex: 10,
                     child: SquircleCard(
+                      onPress: () {},
                       color: activeCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
@@ -99,6 +96,7 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     flex: 5,
                     child: SquircleCard(
+                      onPress: () {},
                       color: activeCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
@@ -109,6 +107,7 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     flex: 5,
                     child: SquircleCard(
+                      onPress: () {},
                       color: activeCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
