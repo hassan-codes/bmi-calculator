@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SquircleCard extends StatelessWidget {
-  SquircleCard(
-      {required this.color, required this.child, required this.onPress});
+  SquircleCard({required this.color, this.child, this.onPress});
 
   final Color color;
   final Widget? child;
-  final void Function() onPress;
+  final void Function()? onPress;
 
   @override
   Widget build(BuildContext context) {

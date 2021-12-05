@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'card_child_content.dart';
+import 'constants.dart';
 import 'squircle_card.dart';
-
-const double bottomContainerHeight = 80.0;
-const Color activeCardColor = Color(0XFF45485b);
-const Color inactiveCardColor = Color(0XFF111328);
 
 enum Gender {
   male,
@@ -80,9 +77,10 @@ class _InputPageState extends State<InputPage> {
                     child: SquircleCard(
                       onPress: () {},
                       color: activeCardColor,
-                      child: CardChildContent(
-                        icon: FontAwesomeIcons.mars,
-                        title: 'MALE',
+                      child: Column(
+                        children: <Widget>[
+                          Text('HEIGHT'),
+                        ],
                       ),
                     ),
                   ),
