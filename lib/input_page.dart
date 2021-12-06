@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,6 +18,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class _InputPageState extends State<InputPage> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: Row(
@@ -41,8 +44,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       color: (selectedGender == Gender.male)
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
                         title: 'MALE',
@@ -57,8 +60,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       color: (selectedGender == Gender.female)
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.venus,
                         title: 'FEMALE',
@@ -76,10 +79,40 @@ class _InputPageState extends State<InputPage> {
                     flex: 10,
                     child: SquircleCard(
                       onPress: () {},
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('HEIGHT'),
+                          Text(
+                            'HEIGHT',
+                            style: kTitleTextStyle,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: <Widget>[
+                                Text(
+                                  height.toString(),
+                                  style: kExtraLargeTextStyle,
+                                ),
+                                Text(
+                                  'cm',
+                                  style: kTitleTextStyle,
+                                ),
+                              ]),
+                          Slider(
+                            value: height.toDouble(),
+                            min: kMinHeight,
+                            max: kMaxHeight,
+                            activeColor: Theme.of(context).accentColor,
+                            inactiveColor: kInactiveGrey,
+                            onChanged: (double newValue) {
+                              setState(() {
+                                height = newValue.round();
+                              });
+                            },
+                          )
                         ],
                       ),
                     ),
@@ -95,7 +128,7 @@ class _InputPageState extends State<InputPage> {
                     flex: 5,
                     child: SquircleCard(
                       onPress: () {},
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
                         title: 'MALE',
@@ -106,7 +139,7 @@ class _InputPageState extends State<InputPage> {
                     flex: 5,
                     child: SquircleCard(
                       onPress: () {},
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       child: CardChildContent(
                         icon: FontAwesomeIcons.mars,
                         title: 'MALE',
@@ -120,7 +153,7 @@ class _InputPageState extends State<InputPage> {
               color: Theme.of(context).accentColor,
               margin: EdgeInsets.only(top: 10.0),
               width: double.infinity,
-              height: bottomContainerHeight,
+              height: kBottomContainerHeight,
             ),
           ],
         ),

@@ -22,7 +22,7 @@ class CardChildContent extends StatelessWidget {
         ),
         Text(
           title,
-          style: titleTextStyle,
+          style: kTitleTextStyle,
         ),
       ],
     );
