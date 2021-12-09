@@ -147,9 +147,20 @@ class _InputPageState extends State<InputPage> {
                             'WEIGHT',
                             style: kTitleTextStyle,
                           ),
-                          Text(
-                            '40',
-                            style: kExtraLargeTextStyle,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            textBaseline: TextBaseline.alphabetic,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            children: [
+                              Text(
+                                '40',
+                                style: kExtraLargeTextStyle,
+                              ),
+                              Text(
+                                'kg',
+                                style: kTitleTextStyle,
+                              ),
+                            ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
