@@ -17,3 +17,8 @@ const kExtraLargeTextStyle = TextStyle(
 
 const kMinHeight = 120.0;
 const kMaxHeight = 320.0;
+
+const kLargeButtonTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
