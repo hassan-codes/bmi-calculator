@@ -101,17 +101,28 @@ class _InputPageState extends State<InputPage> {
                                   style: kTitleTextStyle,
                                 ),
                               ]),
-                          Slider(
-                            value: height.toDouble(),
-                            min: kMinHeight,
-                            max: kMaxHeight,
-                            activeColor: Theme.of(context).accentColor,
-                            inactiveColor: kInactiveGrey,
-                            onChanged: (double newValue) {
-                              setState(() {
-                                height = newValue.round();
-                              });
-                            },
+                          SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              activeTrackColor: Colors.white,
+                              inactiveTrackColor: kInactiveGrey,
+                              thumbColor: Theme.of(context).accentColor,
+                              overlayColor: Color(0X1fEB1555),
+                              thumbShape: RoundSliderThumbShape(
+                                  enabledThumbRadius: 15.0),
+                              overlayShape:
+                                  RoundSliderOverlayShape(overlayRadius: 28.0),
+                              trackHeight: 1.2,
+                            ),
+                            child: Slider(
+                              value: height.toDouble(),
+                              min: kMinHeight,
+                              max: kMaxHeight,
+                              onChanged: (double newValue) {
+                                setState(() {
+                                  height = newValue.round();
+                                });
+                              },
+                            ),
                           )
                         ],
                       ),
@@ -129,9 +140,28 @@ class _InputPageState extends State<InputPage> {
                     child: SquircleCard(
                       onPress: () {},
                       color: kActiveCardColor,
-                      child: CardChildContent(
-                        icon: FontAwesomeIcons.mars,
-                        title: 'MALE',
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'WEIGHT',
+                            style: kTitleTextStyle,
+                          ),
+                          Text(
+                            '40',
+                            style: kExtraLargeTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RoundIconButton(child: FontAwesomeIcons.minus),
+                              SizedBox(
+                                width: 14.0,
+                              ),
+                              RoundIconButton(child: FontAwesomeIcons.plus),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -158,6 +188,27 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({required this.child});
+
+  final IconData child;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(child),
+      onPressed: () {},
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      elevation: 6.0,
     );
   }
 }
