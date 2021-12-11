@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
+
 import 'result_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -254,7 +256,15 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            BottomButton(),
+            BottomButton(
+              onTap: (){
+                Navigator.pushNamed(
+                  context,
+                  '/results_page',
+                );
+              },
+              title: 'calculate',
+            ),
           ],
         ),
       ),
