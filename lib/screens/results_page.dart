@@ -8,10 +8,10 @@ import 'package:flutter/rendering.dart';
 class ResultsPage extends StatelessWidget {
   ResultsPage(
       {required this.bmiResult,
-      required this.resultText,
+      required this.resultRemark,
       required this.interpretation});
 
-  final String bmiResult, resultText, interpretation;
+  final String bmiResult, resultRemark, interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class ResultsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      resultText.toUpperCase(),
+                      resultRemark.toUpperCase(),
                       style: kResultTextStyle,
                     ),
                     Text(
