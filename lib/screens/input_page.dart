@@ -1,12 +1,12 @@
-import 'results_page.dart';
+import 'result_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../components/card_child_content.dart';
-import '../components/round_icon_button.dart';
-import '../constants.dart';
-import '../components/squircle_card.dart';
+import 'package:bmi_calculator/components/card_child_content.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/squircle_card.dart';
 
 enum Gender {
   male,
@@ -21,7 +21,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender? selectedGender;
+  Gender selectedGender = Gender.male;
   int height = 140;
   int weight = 45;
   int age = 16;
@@ -91,7 +91,7 @@ class _InputPageState extends State<InputPage> {
                         children: <Widget>[
                           Text(
                             'HEIGHT',
-                            style: kTitleTextStyle,
+                            style: kLabelTextStyle,
                           ),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +104,7 @@ class _InputPageState extends State<InputPage> {
                                 ),
                                 Text(
                                   'cm',
-                                  style: kTitleTextStyle,
+                                  style: kLabelTextStyle,
                                 ),
                               ]),
                           SliderTheme(
@@ -151,7 +151,7 @@ class _InputPageState extends State<InputPage> {
                         children: <Widget>[
                           Text(
                             'WEIGHT',
-                            style: kTitleTextStyle,
+                            style: kLabelTextStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -164,7 +164,7 @@ class _InputPageState extends State<InputPage> {
                               ),
                               Text(
                                 'kg',
-                                style: kTitleTextStyle,
+                                style: kLabelTextStyle,
                               ),
                             ],
                           ),
@@ -206,7 +206,7 @@ class _InputPageState extends State<InputPage> {
                         children: <Widget>[
                           Text(
                             'AGE',
-                            style: kTitleTextStyle,
+                            style: kLabelTextStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -219,7 +219,7 @@ class _InputPageState extends State<InputPage> {
                               ),
                               Text(
                                 'yr',
-                                style: kTitleTextStyle,
+                                style: kLabelTextStyle,
                               ),
                             ],
                           ),
@@ -254,27 +254,7 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/results_page',
-                );
-              },
-              child: Container(
-                child: Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: kLargeButtonTextStyle,
-                  ),
-                ),
-                color: Theme.of(context).accentColor,
-                padding: EdgeInsets.only(bottom: 10.0),
-                margin: EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-              ),
-            ),
+            BottomButton(),
           ],
         ),
       ),
