@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/squircle_card.dart';
@@ -20,7 +21,8 @@ class ResultsPage extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
-                padding: EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.all(16.0),
+                alignment: Alignment.bottomLeft,
                 child: Text(
                   'Your Result',
                   textAlign: TextAlign.left,
@@ -44,15 +46,23 @@ class ResultsPage extends StatelessWidget {
                       '18.3',
                       style: kExtraExtraLargeTextStyle,
                     ),
-                    Text(
-                      'Your BMI is quite low, you should eat more!',
-                      textAlign: TextAlign.center,
-                      style: kBodyTextStyle,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Your BMI is quite low, you should eat more!',
+                        textAlign: TextAlign.center,
+                        style: kBodyTextStyle,
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
+            BottomButton(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                title: 're-calculate')
           ],
         ),
       ),
