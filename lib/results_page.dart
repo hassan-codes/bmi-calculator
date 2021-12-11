@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  const ResultsPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -10,7 +11,14 @@ class ResultsPage extends StatelessWidget {
           centerTitle: true,
         ),
         body: Container(
-          child: Text('Results'),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Return'),
+            ),
+          ),
         ),
       ),
     );

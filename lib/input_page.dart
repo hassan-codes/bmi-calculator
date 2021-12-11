@@ -13,6 +13,8 @@ enum Gender {
 }
 
 class InputPage extends StatefulWidget {
+  const InputPage({Key? key}) : super(key: key);
+
   @override
   _InputPageState createState() => _InputPageState();
 }
@@ -253,9 +255,9 @@ class _InputPageState extends State<InputPage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
+                Navigator.pushNamed(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()),
+                  '/results_page',
                 );
               },
               child: Container(
