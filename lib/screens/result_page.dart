@@ -6,7 +6,13 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/rendering.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+  ResultsPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
+
+  final String bmiResult, resultText, interpretation;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
