@@ -1,11 +1,12 @@
-import 'package:bmi_calculator/results_page.dart';
+import 'results_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'card_child_content.dart';
-import 'constants.dart';
-import 'squircle_card.dart';
+import '../components/card_child_content.dart';
+import '../components/round_icon_button.dart';
+import '../constants.dart';
+import '../components/squircle_card.dart';
 
 enum Gender {
   male,
@@ -277,28 +278,6 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.child, required this.onPressed});
-
-  final IconData child;
-  final void Function() onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(child),
-      onPressed: onPressed,
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      elevation: 6.0,
     );
   }
 }
